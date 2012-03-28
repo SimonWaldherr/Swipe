@@ -1,8 +1,8 @@
-# Swipe 1.0
-Swipe is a lightweight mobile slider with **1-to-1** touch movement. For more info read the [blog post](http://pr-i.me/AQL2).
+# Swipe 1.0.1
+Swipe is a lightweight javascript-based slider with **1-to-1** touch movement.
 
 ## Demo
-### Visit here on a touch-enabled mobile device [swipejs.com](http://swipejs.com)
+### Visit here on a touch-enabled mobile device [swipejs](http://simon.waldherr.eu/projects/swipejs/)
 
 ## Usage
 Swipe only needs to follow a simple pattern. Here is an example:
@@ -91,4 +91,4 @@ I would love to hear more about how to improve Swipe. Play with it and let me kn
 
 
 ## License
-Swipe mobile slider is &copy; 2011 [Brad Birdsall](http://bradbirdsall.com) and is licensed under the terms of GPL &amp; MIT licenses. 
+The original Swipe 1.0 mobile slider is &copy; 2011 [Brad Birdsall](http://bradbirdsall.com) and is licensed under the terms of GPL &amp; MIT licenses. 
