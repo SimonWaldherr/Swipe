@@ -1,0 +1,74 @@
+<!DOCTYPE HTML> 
+<html>
+<head>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/> 
+<link href='./../style/swipe.css' rel='stylesheet'/>
+<link href='./../style/style.css' rel='stylesheet'/>
+</head>
+<body>
+
+<h1>Swipe</h1>
+<a href="./../">back</a>
+<h2>phone</h2>
+
+<div id='box'>
+<div id='phone' class='swipe'>
+<div id='phonescreen'>
+  <div>
+    <div style='display:block'><div>1</div></div>
+    <div style='display:none'><div>2</div></div>
+    <div style='display:none'><div>3</div></div>
+    <div style='display:none'><div>4</div></div>
+    <div style='display:none'><div>5</div></div>
+  </div>
+</div>
+</div>
+<div class="position" data-tab="1">
+  <div class="bullets">
+  <div onclick="phonescreen.slide(0, 550)" class="bul on"></div>
+  <div onclick="phonescreen.slide(1, 550)" class="bul "></div>
+  <div onclick="phonescreen.slide(2, 550)" class="bul "></div>
+  <div onclick="phonescreen.slide(3, 550)" class="bul "></div>
+  <div onclick="phonescreen.slide(4, 550)" class="bul "></div>
+  </div>
+</div>
+
+<a href='#' onclick='phonescreen.prev();return false;'>prev</a> 
+<a href='#' onclick='phonescreen.next();return false;'>next</a>
+<br><br>
+</div>
+<div id='box2'>
+<div id='phone2' class='swipe'>
+<div id='phonescreen2'>
+  <div>
+    <div style='display:block'><div>1</div></div>
+    <div style='display:none'><div>2</div></div>
+    <div style='display:none'><div>3</div></div>
+    <div style='display:none'><div>4</div></div>
+    <div style='display:none'><div>5</div></div>
+  </div>
+</div>
+</div>
+<div class="position" data-tab="1">
+  <div class="bullets">
+  <div onclick="phonescreen2.slide(0, 550)" class="bul on"></div>
+  <div onclick="phonescreen2.slide(1, 550)" class="bul "></div>
+  <div onclick="phonescreen2.slide(2, 550)" class="bul "></div>
+  <div onclick="phonescreen2.slide(3, 550)" class="bul "></div>
+  <div onclick="phonescreen2.slide(4, 550)" class="bul "></div>
+  </div>
+</div>
+
+<a href='#' onclick='phonescreen2.prev();return false;'>prev</a> 
+<a href='#' onclick='phonescreen2.next();return false;'>next</a>
+<br><br>
+</div>
+
+<script src='./../js/swipe.js'></script>
+<script>
+var phonescreen = new Swipe(document.getElementById('phonescreen'));
+var phonescreen2 = new Swipe(document.getElementById('phonescreen2'));
+</script>
+
+</body> 
+</html> 

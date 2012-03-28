@@ -1,0 +1,141 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>swipe.js</title>
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1" />
+	<link href='./style/swipe.css' rel='stylesheet' />
+	<link href='./style/style.css' rel='stylesheet' />
+</head>
+<body style="background: #222;">
+
+<div id="header">
+<h1>swipe.js</h1>
+</div>
+
+<div class="title">
+<h2>Examples</h2>
+</div>
+<div class="content">
+<a href="./examples/original.html"><img src="./style/original.png" /></a>
+<a href="./examples/smartphone.html"><img src="./style/phone.png" /></a>
+
+</div>
+<div class="title" onclick="javascript:document.getElementById('info').style.display='block';">
+<h2>Info</h2><div style="position:relative; top: -30px; left: 155px; font-size: 13px;">click to show</div>
+</div>
+<div class="content" id="info" style="display:none;">
+<article class="markdown-body" itemprop="mainContentOfPage"><h1>Swipe 1.0.1</h1>
+
+<p>Swipe is a lightweight javascript-based slider with <strong>1-to-1</strong> touch movement.</p>
+
+<h2>Demo</h2>
+
+<h3>Visit here on a touch-enabled mobile device <a href="http://simon.waldherr.eu/projects/swipejs/">swipejs</a>
+</h3>
+
+<h2>Usage</h2>
+
+<p>Swipe only needs to follow a simple pattern. Here is an example:</p>
+
+<div class="highlight">
+<pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'slider'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">'display:block'</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">'display:none'</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">'display:none'</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">'display:none'</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">'display:none'</span><span class="nt">&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre>
+</div>
+
+
+<p>Above is the initial required structure– a series of elements wrapped in two containers. An unordered list makes sense here, but this can be any combination of elements that has the same structure.  <em>(more on the <code>display:block/none</code> reasoning below)</em>.Place any content you want within the items. The containing div will need to be passed to a new Swipe object like so:</p>
+
+<div class="highlight">
+<pre><span class="nb">window</span><span class="p">.</span><span class="nx">mySwipe</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Swipe</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'slider'</span><span class="p">));</span>
+
+</pre>
+</div>
+
+
+<p>I always place this at the bottom of the page, externally, to verify the page is ready.</p>
+
+<h2>Config Options</h2>
+
+<p>Swipe can take an optional second parameter– an object of key/value settings:</p>
+
+<ul>
+<li><p><strong>startSlide</strong> Integer <em>(default:0)</em> - index position Swipe should start at</p></li>
+<li><p><strong>speed</strong> Integer <em>(default:300)</em> - speed of prev and next transitions in milliseconds.</p></li>
+<li><p><strong>auto</strong> Integer - begin with auto slideshow (time in milliseconds between slides)</p></li>
+<li><p><strong>callback</strong> Function - runs at the end of any slide change. <em>(effective for updating position indicators/counters)</em></p></li>
+</ul><h3>Example</h3>
+
+<div class="highlight">
+<pre><span class="nb">window</span><span class="p">.</span><span class="nx">mySwipe</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Swipe</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'slider'</span><span class="p">),</span> <span class="p">{</span>
+    <span class="nx">startSlide</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nx">speed</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span>
+    <span class="nx">auto</span><span class="o">:</span> <span class="mi">3000</span><span class="p">,</span>
+    <span class="nx">callback</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="c1">// do something cool</span>
+
+    <span class="p">}</span>
+<span class="p">});</span>
+
+</pre>
+</div>
+
+
+<h2>Swipe API</h2>
+
+<p>Swipe exposes a few functions that can be useful for script control of your slider.</p>
+
+<p><code>prev()</code> slide to prev</p>
+
+<p><code>next()</code> slide to next</p>
+
+<p><code>getPos()</code> returns current slide index position</p>
+
+<p><code>slide(index, duration)</code> slide to set index position (duration: speed of transition in milliseconds)</p>
+
+<h2>Requirements</h2>
+
+<p>Swipe requires a device that supports CSS transforms and works best with devices that support touch. Both of these are not required for the code to run since Swipe does not include any feature detection in the core code. This decision was made due to the fact that all mobile web development should already have some sort of feature detection built into the page. I recommend using a custom build of <a href="http://modernizr.com">Modernizr</a>, don't recreate the wheel.</p>
+
+<p>Sample use with Modernizr:</p>
+
+<div class="highlight">
+<pre><span class="k">if</span> <span class="p">(</span> <span class="nx">Modernizr</span><span class="p">.</span><span class="nx">csstransforms</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">mySwipe</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Swipe</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'slider'</span><span class="p">));</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<p>This is why I set all elements but the first list item to <code>display:none</code>– if the device doesn't pass the feature tests then it will fallback to displaying only the first item.</p>
+
+<h2>Let's Make It Better</h2>
+
+<p>I would love to hear more about how to improve Swipe. Play with it and let me know how you use and please fork away. If you have any questions, contact me on <a href="http://twitter.com/bradbirdsall">Twitter</a> or <a href="http://github.com/bradbirdsall">GitHub</a>.</p>
+
+<h2>License</h2>
+
+<p>The original Swipe 1.0 mobile slider is © 2011 <a href="http://bradbirdsall.com">Brad Birdsall</a> and is licensed under the terms of GPL &amp; MIT licenses. </p><p>The changes in this Swipe fork are © 2011 <a href="http://simon.waldherr.eu">Simon Waldherr</a> and is licensed under the terms of GPL &amp; MIT licenses. </p></article>
+</div>
+<div id="footer">
+(c) 2012 Simon Waldherr. Some rights reserved. GPL and MIT licensed.
+</div>
+
+</body> 
+</html> 

@@ -89,7 +89,19 @@ Swipe.prototype = {
   slide: function(index, duration) {
 
     var style = this.element.style;
+    
 
+    if(this.container.parentNode.nextSibling != undefined)
+    {
+	bullets = this.container.parentNode.nextSibling.nextSibling.firstChild.nextSibling.getElementsByTagName("div");
+	var i = bullets.length;
+	while (i--)
+	  {
+		bullets[i].className = 'bul ';
+	  }
+	bullets[index].className = 'bul on';
+	}
+	
     // set duration speed (0 represents 1-to-1 scrolling)
     style.webkitTransitionDuration = style.MozTransitionDuration = style.msTransitionDuration = style.OTransitionDuration = style.transitionDuration = duration + 'ms';
 
